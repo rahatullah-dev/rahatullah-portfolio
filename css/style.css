@@ -21,6 +21,32 @@
    17. EXTRA SMALL DEVICES
    
    ======================================== */
+.rahat-title h3{
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;
+    font-family: sans;
+    margin: 30px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #2563eb;
+
+}
+/* .rahat-title h3{
+    margin: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    color: black;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #2563eb;
+} */
+
 
 /* ========================================
    1. RESET & BASE STYLES
@@ -300,7 +326,7 @@ ul {
     display: inline-block;
 }
 
-.highlight::after {
+/* .highlight::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -310,7 +336,7 @@ ul {
     background: rgba(37, 99, 235, 0.1);
     z-index: -1;
     transform: skewX(-15deg);
-}
+} */
 
 /* Buttons */
 .btn {
@@ -1334,8 +1360,8 @@ header.scrolled {
 .hero-image img {
     max-width: 100%;
     height: auto;
+    margin-top: 60px;
     border-radius: 0% 0% 226% 251% / 124% 114% 198% 255%;
-    /* background: linear-gradient(135deg, #2563eb20, #7c3aed20); */
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
     position: relative;
     z-index: 1;
@@ -2092,6 +2118,7 @@ header.scrolled {
 /* Social Links */
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }

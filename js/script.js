@@ -12,6 +12,40 @@ const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section');
 
+
+// auto text animation 
+
+const containerEl = document.getElementById("slogan");
+
+const careers = [
+    "Rahat Ullah",
+  "A Web Developer",
+  "Freelancer",
+  "&   ",
+  "UX / UI",
+  "Designer"
+];
+
+let careerIndex = 0;
+let characterIndex = 0;
+
+updateText();
+
+function updateText() {
+  characterIndex++;
+  containerEl.innerHTML = `<h4>${careers[careerIndex].slice(0, 1) === "I" ? "an" : ""} ${careers[careerIndex].slice(0, characterIndex)} </h4>`;
+  if (characterIndex === careers[careerIndex].length) {
+    careerIndex++;
+    characterIndex = 0;
+  }
+  if (careerIndex === careers.length) {
+    careerIndex = 0;
+  }
+  setTimeout(updateText, 250);
+}
+
+
+
 // ========================================
 // 1. HEADER SCROLL EFFECT
 // ========================================
