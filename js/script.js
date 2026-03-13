@@ -18,12 +18,12 @@ const sections = document.querySelectorAll('section');
 const containerEl = document.getElementById("slogan");
 
 const careers = [
-    "Rahat Ullah",
-  "A Web Developer",
-  "Freelancer",
+    "Rahat Ullah  ",
+  "A  Developer",
+  "A  Freelancer",
   "&   ",
   "UX / UI",
-  "Designer"
+  "Designer   "
 ];
 
 let careerIndex = 0;
