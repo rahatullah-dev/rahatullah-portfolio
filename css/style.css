@@ -1,26 +1,3 @@
-/* ========================================
-   TABLE OF CONTENTS
-   ========================================
-   
-   1. RESET & BASE STYLES
-   2. CUSTOM CURSOR
-   3. ANIMATIONS & KEYFRAMES
-   4. SCROLL PROGRESS BAR
-   5. PRELOADER
-   6. TYPOGRAPHY & UTILITIES
-   7. HEADER & NAVIGATION
-   8. HERO SECTION
-   9. ABOUT SECTION
-   10. SKILLS SECTION
-   11. SERVICES SECTION
-   12. PROJECTS SECTION
-   13. CONTACT SECTION
-   14. FOOTER
-   15. BACK TO TOP BUTTON
-   16. MOBILE RESPONSIVE
-   17. EXTRA SMALL DEVICES
-   
-   ======================================== */
 .rahat-title h3{
     color: black;
     text-align: center;
@@ -47,6 +24,40 @@
     border: 2px solid #2563eb;
 } */
 
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: #2563eb;
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color:#fff;
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
 
 /* ========================================
    1. RESET & BASE STYLES
