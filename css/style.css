@@ -58,7 +58,10 @@
   opacity: 1;
   bottom: 15px;
 }
-
+.fa-solid {
+    color: white;
+    margin: 22px 0 0 13px;
+}
 /* ========================================
    1. RESET & BASE STYLES
    ======================================== */
