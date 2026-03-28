@@ -77,7 +77,7 @@
     <!-- Mobile Menu (Duplicate for better mobile experience) -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <div class="mobile-logo"><span>R</span>ahat <span>U</span>llah</div>
+            <div class="mobile-logo logo-text"><span>R</span>ahat <span>U</span>llah</div>
             <button class="close-menu" aria-label="Close menu">&times;</button>
         </div>
         <ul class="mobile-nav-menu">
@@ -100,7 +100,15 @@
         </div>
     </div>
 </header>
-    
+    <!-- Mouse trail container -->
+<div id="trail-container"></div>
+<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+<script type="module">
+ new cursoreffects.bubbleCursor({
+  fillColor: "#f771b4",
+  strokeColor: "#e6f1f7",
+});
+</script>
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">

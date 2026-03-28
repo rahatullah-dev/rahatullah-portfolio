@@ -556,13 +556,13 @@ header.scrolled {
 
 .nav-link:hover {
     color: #2563eb;
-    background: rgba(37, 99, 235, 0.05);
-    transform: translateY(-2px);
+    /* background: rgba(37, 99, 235, 0.05); */
+    /* transform: translateY(-2px); */
 }
 
 .nav-link.active {
     color: #2563eb;
-    background: rgba(37, 99, 235, 0.1);
+    /* background: rgba(37, 99, 235, 0.1); */
     font-weight: 600;
 }
 
