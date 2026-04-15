@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahat Ullah | Developer | Portfolio</title>
+    <title>Rahat Ullah | Web Developer | Portfolio</title>
     <meta name="description"
         content="Rahat Ullah - Professional Web Developer Portfolio. Specializing in responsive websites, modern UI/UX design, and interactive web applications.">
     <meta name="keywords"
@@ -14,150 +15,211 @@
     <meta property="og:image" content="./assets/images/rahatImage.png">
     <meta property="og:url" content="https://rahatullahdev.vercel.app">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./assets/images/Letter R for Business Logo.png" type="image/x-icon">
-    <!-- Google Fonts for clean typography (Inter or Poppins) -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Performance: preconnect to external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-    <!-- Font Awesome for icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts — Inter for clean modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Link to CSS -->
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="./assets/images/rahatImage.png">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Tailwind CSS for modern utility-first components -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#2563eb',
+                            indigo: '#7c3aed',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
+
 <body>
-<!-- ========================================
-     HEADER SECTION - ENHANCED RESPONSIVE
+
+    <!-- ========================================
+     PAGE LOADER — shown until window.onload
      ======================================== -->
-<header>
-    <nav class="navbar">
-        <!-- Logo with animated gradient -->
-        <div class="logo">
-            <span class="logo-text"><span>R</span>ahat <span>U</span>llah</span>
-            <div class="logo-glow"></div>
+    <div id="page-loader" class="page-loader">
+        <div class="loader-inner">
+            <div class="loader-ring"></div>
+            <div class="loader-ring loader-ring--delay"></div>
+            <div class="loader-logo">R</div>
         </div>
-
-        <!-- Navigation Menu -->
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-            <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-            <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-
-        <!-- Right Side Actions -->
-        <div class="nav-actions">
-            <!-- Download CV Button with badge -->
-            <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" class="cv-button">
-                <span class="cv-text">Download CV</span>
-                <span class="open-badge">
-                    <span class="pulse-dot"></span>
-                    Open to work
-                </span>
-            </a>
-
-            <!-- Theme Toggle (Optional - can be added later) -->
-            <!-- <button class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button> -->
-
-            <!-- Hamburger icon for mobile -->
-            <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Overlay for mobile menu -->
-    <div class="menu-overlay"></div>
-
-    <!-- Mobile Menu (Duplicate for better mobile experience) -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <div class="mobile-logo logo-text"><span>R</span>ahat <span>U</span>llah</div>
-            <button class="close-menu" aria-label="Close menu">&times;</button>
-        </div>
-        <ul class="mobile-nav-menu">
-            <li class="mobile-nav-item"><a href="#home" class="mobile-nav-link">Home</a></li>
-            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About</a></li>
-            <li class="mobile-nav-item"><a href="#skills" class="mobile-nav-link">Skills</a></li>
-            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services</a></li>
-            <li class="mobile-nav-item"><a href="#projects" class="mobile-nav-link">Projects</a></li>
-            <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        </ul>
-        <div class="mobile-menu-footer">
-            <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" class="mobile-cv-button">
-                <i class="fas fa-download"></i> Download CV
-            </a>
-            <div class="mobile-social-links">
-                <a href="https://github.com/rahatullah-dev" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://x.com/rahatullah_dev" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
+        <p class="loader-text">Loading...</p>
     </div>
-</header>
-    <!-- Mouse trail container -->
-<div id="trail-container"></div>
-<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-<script type="module">
- new cursoreffects.bubbleCursor({
-  fillColor: "#f771b4",
-  strokeColor: "#e6f1f7",
-});
-</script>
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <p class="hero-subtitle">Web Developer</p>
-                <!-- <h1 class="hero-title">Hi, I'm <span class="highlight">Rahat Ullah</span>,<br>I Build Web Experiences<br>That Matter</h1> -->
-                <h1 class="rahat-title">Hi, I'm <span class="highlight"><h4 id="slogan">Made With &hearts;- By<span>"Rahat Ullah"</span> </h4></span><br>I Build Web Experiences<br>That Matter</h1>
-                <p class="hero-description">Passionate developer creating responsive, user-friendly web applications with modern technologies.</p>
-                
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn primary-btn">Get In Touch</a>
-                    <a href="#projects" class="btn secondary-btn">View Projects</a>
-                </div>
-                
-                <!-- Statistics Badges -->
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Experiences</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Project done</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">80+</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
+
+    <!-- ========================================
+     SCROLL PROGRESS BAR
+     ======================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ========================================
+     HEADER SECTION
+     ======================================== -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-text"><span>R</span>ahat <span>U</span>llah</span>
+                </a>
+                <div class="logo-glow"></div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" class="cv-button">
+                    <span class="cv-text">Download CV</span>
+                    <span class="open-badge">
+                        <span class="pulse-dot"></span>
+                        Open to work
+                    </span>
+                </a>
+
+                <!-- Hamburger icon for mobile -->
+                <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </div>
-            
-            <div class="hero-image">
-                <img src="./assets/images/rahatImage.png" alt="Rahat Ullah">
+        </nav>
+
+        <!-- Overlay for mobile menu -->
+        <div class="menu-overlay"></div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo logo-text"><span>R</span>ahat <span>U</span>llah</div>
+                <button class="close-menu" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item"><a href="#home" class="mobile-nav-link">Home</a></li>
+                <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" class="mobile-cv-button">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <div class="mobile-social-links">
+                    <a href="https://github.com/rahatullah-dev" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank" rel="noopener"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/rahatullah_dev" target="_blank" rel="noopener" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-subtitle">Web Developer</p>
+
+                    <h1 class="rahat-title">
+                        Hi, I'm
+                        <span class="highlight">
+                            <span id="slogan" class="typed-text"></span>
+                        </span>
+                        <br>I Build Web Experiences<br>That Matter
+                    </h1>
+
+                    <p class="hero-description">
+                        Passionate developer creating responsive, user-friendly web applications with modern
+                        technologies.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                        <a href="#projects" class="btn secondary-btn">View Projects</a>
+                    </div>
+
+                    <!-- Statistics Badges -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projects Done</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="./assets/images/rahatImage.png" alt="Rahat Ullah — Web Developer">
+                </div>
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ========================================
+         ABOUT SECTION
+         ======================================== -->
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-title">About <span class="highlight">Me</span></h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="./assets/images/rahat01.png" height="500px" alt="About me">
+                        <img src="./assets/images/rahat01.png" alt="About Rahat Ullah" loading="lazy">
                     </div>
                     <div class="about-text">
-                        <h3>Front-End Web Developer & Problem Solver</h3>
-                        <p>I’m Rahat Ullah, a passionate Web Developer and a learner who enjoys building modern and responsive websites. I have a strong interest in HTML, CSS, and JavaScript, and I love turning ideas into real, functional web experiences..</p>
-                        <p>I create seamless digital experiences that users love. I'm constantly learning and staying up-to-date with the latest technologies.</p>
+                        <h3>Front-End Web Developer &amp; Problem Solver</h3>
+                        <p>I'm Rahat Ullah, a passionate Web Developer and learner who enjoys building modern and
+                            responsive
+                            websites. I have a strong interest in HTML, CSS, and JavaScript, and I love turning ideas
+                            into
+                            real, functional web experiences.</p>
+                        <p>I create seamless digital experiences that users love. I'm constantly learning and staying
+                            up-to-date with the latest technologies.</p>
                         <div class="about-info">
                             <div class="info-item">
                                 <i class="fas fa-user"></i>
@@ -176,13 +238,16 @@
                                 <span><strong>Experience:</strong> 2+ Years</span>
                             </div>
                         </div>
-                        <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" target="_blank" class="btn primary-btn">Download CV</a>
+                        <a href="./assets/Rahat_Ullah_CV_01.pdf" download="Rahat_Ullah_CV_01.pdf" target="_blank"
+                            class="btn primary-btn">Download CV</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- ========================================
+         SKILLS SECTION
+         ======================================== -->
         <section id="skills" class="skills">
             <div class="container">
                 <h2 class="section-title">My <span class="highlight">Skills</span></h2>
@@ -207,7 +272,11 @@
                                 <span>Bootstrap</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fab fa-js"></i>
+                                <svg class="ts-icon" viewBox="0 0 128 128">
+                                    <rect width="128" height="128" rx="6" fill="#3178c6"/>
+                                    <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z" opacity="0"/>
+                                    <path d="M0 64v64h128V0H0zm71.922-1.506c2.928.732 5.17 2.03 7.17 4.138.99 1.062 2.46 2.994 2.58 3.463.036.13-4.644 3.272-7.48 5.032-.104.065-.512-.374-.976-.99-1.394-1.9-2.847-2.72-5.08-2.87-3.274-.22-5.38 1.49-5.36 4.308.002.83.13 1.32.508 2.004.79 1.44 2.258 2.302 6.858 4.064 8.476 3.646 12.104 6.05 14.354 9.474 2.51 3.83 3.076 9.944 1.38 14.504-1.862 4.942-6.484 8.292-12.98 9.39-2.01.354-6.782.3-8.942-.09-4.714-.862-9.19-3.256-11.952-6.454-.99-1.13-2.916-4.09-2.796-4.302.05-.08.534-.37 1.076-.644l4.342-2.498 3.364-1.94.702.99c.978 1.49 3.114 3.53 4.41 4.212 3.72 1.962 8.83 1.686 11.35-.558 1.01-.9 1.432-1.832 1.432-3.208 0-1.236-.154-1.78-.78-2.708-.804-1.19-2.44-2.19-7.094-4.28-5.322-2.37-7.61-3.836-9.698-6.168-1.21-1.39-2.35-3.614-2.826-5.5-.394-1.556-.496-5.456-.18-7.01.99-4.924 4.49-8.348 9.826-9.574 1.698-.39 5.636-.494 7.292-.082zm-20.08 4.33l.046 4.31H38.1V99.5H29.2V67.134H15.5v-4.244c0-2.342.05-4.29.11-4.332.05-.044 8.27-.066 18.27-.05l18.17.032z" fill="#fff"/>
+                                </svg>
                                 <span>TypeScript</span>
                             </div>
                             <div class="skill-item">
@@ -220,40 +289,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="skill-category">
-                        <h3>Backend Development</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <i class="fab fa-node"></i>
-                                <span>Node.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-database"></i>
-                                <span>MongoDB</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-server"></i>
-                                <span>Express.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-database"></i>
-                                <span>MySQL</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-code"></i>
-                                <span>REST APIs</span>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- ========================================
+         SERVICES SECTION
+         ======================================== -->
         <section id="services" class="services">
             <div class="container">
                 <h2 class="section-title">My <span class="highlight">Services</span></h2>
@@ -292,19 +334,24 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- ========================================
+         PROJECTS SECTION
+         ======================================== -->
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title">Recent <span class="highlight">Projects</span></h2>
                 <div class="projects-grid">
-                    <!-- PROJECT 1 KBIZ WEBSITE  -->
+
+                    <!-- PROJECT 1: KBIZ WEBSITE -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/kbiz.png" alt="Project 1 - KBIZ WEBSITE">
+                            <img src="./assets/images/kbiz.png" alt="Kbiz — Digital Services Consulting Agency"
+                                loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Kbiz - Digital Services Consulting Agency</h3>
-                            <p>A fully responsive website for a digital consulting agency, built using HTML, CSS & JavaScript to deliver a modern and user-friendly experience. </p>
+                            <p>A fully responsive website for a digital consulting agency, built using HTML, CSS &amp;
+                                JavaScript.</p>
                             <div class="project-tech">
                                 <span>HTML5</span>
                                 <span>CSS3</span>
@@ -312,113 +359,159 @@
                                 <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/kbiz-Modern-Business-" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://kbiz-by-rahatullah.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/kbiz-Modern-Business-" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://kbiz-by-rahatullah.vercel.app/" target="_blank" rel="noopener"><i
+                                        class="fas fa-external-link-alt"></i> Live Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 2 portfolio  -->
+                    <!-- PROJECT 1: KBIZ WEBSITE -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/portfolio-project.png" alt="Project 6 - Portfolio website">
+                            <img src="./assets/images/portfolio3.png" alt="Kbiz — Digital Services Consulting Agency"
+                                loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Ventix - Portfolio Website</h3>
+                            <p>A fully responsive portfolio website creating for a Web Developer, built using HTML, CSS &amp;
+                                JavaScript.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Bootstrap</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rahatullah-dev/portfolio-website-3" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://portfolio-website-2-mu.vercel.app/" target="_blank" rel="noopener"><i
+                                        class="fas fa-external-link-alt"></i> Live Preview</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2: Portfolio -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./assets/images/portfolio-project.png" alt="Portfolio Website" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Portfolio Website</h3>
-                            <p> A Portfolio Website created for a Skilled person to show his Achievment, with the help of html,css,javaScrip & bootstrap.</p>
+                            <p>A Portfolio Website created for a skilled individual to showcase achievements, built with
+                                HTML, CSS, JavaScript &amp; Bootstrap.</p>
                             <div class="project-tech">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>Bootstrap</span>
-                                <span>Java Script</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/portfolio-website" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://rahatullah-portfolio-2.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/portfolio-website" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://rahatullah-portfolio-2.vercel.app/" target="_blank" rel="noopener"><i
+                                        class="fas fa-external-link-alt"></i> Live Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 3 BINUZA WEBSITE  -->
+
+                    <!-- PROJECT 3: BINUZA WEBSITE -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/binuza-website.png" alt="Project 2 - binuza Website">
+                            <img src="./assets/images/binuza-website.png" alt="Binuza — Consulting Agency"
+                                loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Binuza - Consulting Agency</h3>
-                            <p>A fully responsive website for a consulting agency, built using HTML, CSS & JavaScript with modern design and functionality.</p>
+                            <p>A fully responsive website for a consulting agency, built using HTML, CSS &amp;
+                                JavaScript with modern design and functionality.</p>
                             <div class="project-tech">
                                 <span>HTML</span>
-                                <span>CSSS</span>
+                                <span>CSS</span>
                                 <span>Bootstrap</span>
-                                <span>Java Script</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/binuza-website" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://binuza-website-rahatullah.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/binuza-website" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://binuza-website-rahatullah.vercel.app/" target="_blank"
+                                    rel="noopener"><i class="fas fa-external-link-alt"></i> Live Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 4 SPOTIFY CLONE  -->
+
+                    <!-- PROJECT 4: SPOTIFY CLONE -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/spotify1.png" alt="Project 3 - Spotify Clone">
+                            <img src="./assets/images/spotify1.png" alt="Spotify Clone — Music Player" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Spotify Clone - Music Player</h3>
-                            <p>Responsive music player clone built with HTML, CSS & JavaScript. </p>
+                            <p>Responsive music player clone built with HTML, CSS &amp; JavaScript.</p>
                             <div class="project-tech">
                                 <span>HTML5</span>
                                 <span>CSS3</span>
                                 <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/spotify-clone" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://spotify-clone-blue-six.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/spotify-clone" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://spotify-clone-blue-six.vercel.app/" target="_blank" rel="noopener"><i
+                                        class="fas fa-external-link-alt"></i> Live Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 45 E-Commerce shop -->
+
+                    <!-- PROJECT 5: E-Commerce Shop -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/Hackathon.png" alt="Project 4 - E-commerce Shop">
+                            <img src="./assets/images/Hackathon.png" alt="E-Commerce Shop" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>E-Commerce - Shop</h3>
-                            <p>A Fully Responsive E-Commerce Shope of Men's & Women's Clothing.</p>
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSSS</span>
-                                <span>Bootstrap</span>
-                                <span>Java Script </span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/Hackathon-project" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://hackathon-project-eight-weld.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i>Live Preview</a>
-                            </div>
-                        </div>
-                    </div>     
-                    <!-- PROJECT 6 Landing Page  -->
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="./assets/images/LandPage.png" alt="Project 5 - Landing Page">
-                        </div>
-                        <div class="project-info">
-                            <h3>Landing Page</h3>
-                            <p> A Team Work Responsive landing page built with HTML, CSS for modern design and user engagement.</p>
+                            <p>A fully responsive E-Commerce shop for Men's &amp; Women's Clothing.</p>
                             <div class="project-tech">
                                 <span>HTML</span>
                                 <span>CSS</span>
-                                <span>Java Script</span>
+                                <span>Bootstrap</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/landing-page" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://landing-page-psi-kohl.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/Hackathon-project" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://hackathon-project-eight-weld.vercel.app/" target="_blank"
+                                    rel="noopener"><i class="fas fa-external-link-alt"></i> Live Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 7 CURRENCY CONVERTER  -->
+
+                    <!-- PROJECT 6: Landing Page -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/Currency Converter.png" alt="Project 6 - Currency Converter">
+                            <img src="./assets/images/LandPage.png" alt="Landing Page" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <h3>Landing Page</h3>
+                            <p>A team-built responsive landing page using HTML &amp; CSS for modern design and user
+                                engagement.</p>
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/rahatullah-dev/landing-page" target="_blank"
+                                    rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://landing-page-psi-kohl.vercel.app/" target="_blank" rel="noopener"><i
+                                        class="fas fa-external-link-alt"></i> Live Preview</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 7: Currency Converter -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./assets/images/Currency Converter.png" alt="Currency Converter" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Currency Converter</h3>
@@ -427,26 +520,30 @@
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>API</span>
-                                <span>Java Script</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/03-currency-converter" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://50-javascript-projects-gamma.vercel.app/03-currency-converter/index.html" target="_blank"><i class="fas fa-external-link-alt"></i>Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/03-currency-converter"
+                                    target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://50-javascript-projects-gamma.vercel.app/03-currency-converter/index.html"
+                                    target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live
+                                    Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 8 Count Down To New Year  -->
+
+                    <!-- PROJECT 8: Countdown Timer -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/countDownProject.png" alt="Project 7 - Count Down To New Year">
+                            <img src="./assets/images/countDownProject.png" alt="Countdown to New Year" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Count Down To New Year</h3>
-                            <p>A Count Down Timer which is showing how much days, hours, minutes, and seconds left to the new year</p>
+                            <p>A countdown timer showing days, hours, minutes, and seconds left to the new year.</p>
                             <div class="project-tech">
                                 <span>HTML</span>
-                                <span>CSSS</span>
-                                <span>Java Script</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
                                 <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
@@ -454,10 +551,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 9 Basic Calculator  -->
+
+                    <!-- PROJECT 9: Basic Calculator -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/calculator.png" alt="Project 9 Basic Calculator">
+                            <img src="./assets/images/calculator.png" alt="Basic Calculator" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>A Basic Calculator</h3>
@@ -468,47 +566,372 @@
                                 <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/02-basic-calculator" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://50-javascript-projects-gamma.vercel.app/02-basic-calculator/index.html" target="_blank"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/02-basic-calculator"
+                                    target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://50-javascript-projects-gamma.vercel.app/02-basic-calculator/index.html"
+                                    target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live
+                                    Preview</a>
                             </div>
                         </div>
                     </div>
-                    <!-- PROJECT 10 Random Password Generator  -->
-                    <div class="project-card">
+
+                    <!-- PROJECT 10: Password Generator -->
+                    <!-- <div class="project-card">
                         <div class="project-image">
-                            <img src="./assets/images/R password generator.png" alt="Project 9 R Password Generator">
+                            <img src="./assets/images/R password generator.png" alt="Password Generator" loading="lazy">
                         </div>
                         <div class="project-info">
                             <h3>Password Generator</h3>
-                            <p>A Simple and Secure Password Generator built with HTML, CSS, and JavaScript.</p>
+                            <p>A simple and secure password generator built with HTML, CSS, and JavaScript.</p>
                             <div class="project-tech">
                                 <span>HTML</span>
                                 <span>CSS</span>
-                                <span>JS</span>
+                                <span>JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/01-random-password-generator" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://50-javascript-projects-gamma.vercel.app/01-random-password-generator/index.html" target="_blank"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                                <a href="https://github.com/rahatullah-dev/50-javascript-projects/tree/main/01-random-password-generator"
+                                    target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://50-javascript-projects-gamma.vercel.app/01-random-password-generator/index.html"
+                                    target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live
+                                    Preview</a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Project 11 will be here  -->
+                    </div> -->
+
                 </div>
-                <!-- All Project Button  -->
+
+                <!-- View All Projects Button -->
                 <div class="projects-more">
                     <a href="./projects.html" class="btn secondary-btn">View All Projects</a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ========================================
+         TESTIMONIALS SECTION
+         ======================================== -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Kind Words from <span class="highlight">Partners</span></h2>
+
+                <div class="testimonials-viewport">
+                    <div class="testimonials-track" id="testimonialTrack">
+                        <!-- Cloned Slide (for infinite loop) -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Rahat's ability to grasp complex requirements and turn them
+                                    into elegant code is truly impressive. A top-tier developer."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Learner" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Learner</h4>
+                                        <span class="role">Development Student</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1. Student -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Working with Rahat was a fantastic experience. His
+                                    technical expertise helped us launch our platform ahead of schedule."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Student" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Student</h4>
+                                        <span class="role">UI Designer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Client -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"The project exceeded our expectations. Rahat is not just a
+                                    developer; he's a problem solver who truly cares about the end user."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Client" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Client</h4>
+                                        <span class="role">Tech Entrepreneur</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Mentor -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"I've mentored many developers, but Rahat's speed of
+                                    learning and commitment to quality is rare. He's built for success."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Mentor" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Mentor</h4>
+                                        <span class="role">Senior Architect</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Reviewer -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"The code quality is exceptional. Every component is
+                                    optimized for performance and follows modern best practices."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Reviewer" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Reviewer</h4>
+                                        <span class="role">Open Source Maintainer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Designer -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"As a designer, I appreciate a developer who has an eye for
+                                    detail. Rahat implemented my designs pixel-perfectly."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Designer" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Designer</h4>
+                                        <span class="role">Product Lead</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Peer -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Rahat is the best teammate you could ask for.
+                                    Collaborative, skilled, and always ready to help with a challenge."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Peer" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Peer</h4>
+                                        <span class="role">Fullstack Developer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. Learner -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Rahat's ability to grasp complex requirements and turn them
+                                    into elegant code is truly impressive. A top-tier developer."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Learner" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Learner</h4>
+                                        <span class="role">Development Student</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloned Slide (for infinite loop) -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left quote-icon"></i>
+                                <p class="testimonial-text">"Working with Rahat was a fantastic experience. His
+                                    technical expertise helped us launch our platform ahead of schedule."</p>
+                                <div class="testimonial-profile">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&h=150&auto=format&fit=crop"
+                                        alt="Student" class="testimonial-avatar">
+                                    <div class="testimonial-details">
+                                        <h4>Student</h4>
+                                        <span class="role">UI Designer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-dots" id="testimonialDots"></div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         INVESTMENT PACKAGES SECTION
+         Modern, Tailwind-powered pricing
+         ======================================== -->
+        <section id="pricing" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Investment <span
+                            class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Packages</span>
+                    </h2>
+                    <p class="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
+                        Transparent pricing solutions built to scale your business with professional web experiences.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+                    <!-- Card 1: Starter -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 flex flex-col transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Starter</h3>
+                            <div class="flex flex-col">
+                                <span class="text-[2rem] font-black text-slate-900 leading-tight">PKR 15,000</span>
+                                <span class="text-slate-500 text-sm font-medium mt-1">(~$55 USD) one-time</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-grow">
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Up to 4 pages</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Fully mobile responsive design</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Contact form</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>1 round of revisions</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" data-package="Starter"
+                            class="block w-full text-center py-3 px-6 rounded-lg text-blue-600 border border-blue-600 font-semibold hover:bg-blue-50 transition-colors pricing-btn">
+                            Get Custom Quote
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Professional (Recommended) -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-xl border-2 border-blue-600 flex flex-col relative transition-transform hover:-translate-y-1 scale-105 z-10">
+                        <div
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide shadow-lg">
+                            RECOMMENDED
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Professional</h3>
+                            <div class="flex flex-col">
+                                <span class="text-[2rem] font-black text-slate-900 leading-tight">PKR 35,000</span>
+                                <span class="text-slate-500 text-sm font-medium mt-1">(~$125 USD) one-time</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-grow">
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Up to 8 pages</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Basic CMS or blog integration</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Contact + WhatsApp button</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Basic SEO setup</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>2-3 rounds of revisions</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" data-package="Professional"
+                            class="block w-full text-center py-3 px-6 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-200 pricing-btn">
+                            Get Custom Quote
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Premium -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 flex flex-col transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Premium</h3>
+                            <div class="flex flex-col">
+                                <span class="text-[2rem] font-black text-slate-900 leading-tight">PKR 65,000</span>
+                                <span class="text-slate-500 text-sm font-medium mt-1">(~$230 USD)</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-grow">
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Unlimited pages</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Custom features (E-commerce, etc.)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Strategic consultation call</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>4 rounds of revisions</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-600">
+                                <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                <span>Priority 24/7 support</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" data-package="Premium"
+                            class="block w-full text-center py-3 px-6 rounded-lg text-blue-600 border border-blue-600 font-semibold hover:bg-blue-50 transition-colors pricing-btn">
+                            Get Custom Quote
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 text-center">
+                    <p class="text-slate-500 text-sm max-w-2xl mx-auto italic">
+                        "Every project is unique. These are starting prices only. Click any button above for a free
+                        custom quote
+                        tailored to your exact needs and budget."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+         CONTACT SECTION — EmailJS powered
+         ======================================== -->
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
                 <div class="contact-content">
+
+                    <!-- Contact Info Side -->
                     <div class="contact-info">
                         <h3>Let's Work Together</h3>
-                        <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                        <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach
+                            out!</p>
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
@@ -533,57 +956,73 @@
                             </div>
                         </div>
                         <div class="social-links">
-                            <a href="https://github.com/rahatullah-dev" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://x.com/rahatullah_dev" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/rahatullah_dev/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/rahatullah-dev" target="_blank" rel="noopener"
+                                aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank" rel="noopener"
+                                aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://x.com/rahatullah_dev" target="_blank" rel="noopener"
+                                aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/rahatullah_dev/" target="_blank" rel="noopener"
+                                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+
+                    <!-- Contact Form — Original Layout + EmailJS -->
                     <div class="contact-form">
-                    <form action="https://formsubmit.co/rahatullah.dev@gmail.com" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                    
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                    
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject">
-                        </div>
-                    
-                        <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                    
-                        <button type="submit" class="btn primary-btn">Send Message</button>
-                    </form>
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <input type="text" id="contact-name" name="from_name" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" id="contact-email" name="from_email" placeholder="Your Email"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="contact-subject" name="subject" placeholder="Subject">
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="contact-message" name="message" rows="5" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" id="contact-submit" class="btn primary-btn">
+                                <span id="btn-text">Send Message</span>
+                                <span id="btn-loading" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i>
+                                    Sending...</span>
+                            </button>
+
+                            <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ========================================
+     FOOTER
+     ======================================== -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo"><span>R</span>ahat <span>U</span>llah</span>
-                    <p>
-                        Web Developer passionate about building modern, responsive, and user-friendly websites.
-                        </p>
-                        <h2>Creating digital experiences that matter.</h2>
-                        <br>
-                        <br>
-                         <div class="social-links">
-                            <a href="https://github.com/rahatullah-dev" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://x.com/rahatullah_dev" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/rahatullah_dev/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </div>
+                    <p>Web Developer passionate about building modern, responsive, and user-friendly websites.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/rahatullah-dev" target="_blank" rel="noopener"
+                            aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/rahat-ullah-a0675a297" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/rahatullah_dev" target="_blank" rel="noopener" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/rahatullah_dev/" target="_blank" rel="noopener"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -595,25 +1034,42 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-               <div class="footer-newsletter">
-    <h4>Newsletter</h4>
-    <p>Subscribe to get updates on my latest projects!</p>
-    <form class="newsletter-form" action="https://formsubmit.co/rahatullah.dev@gmail.com" method="POST">
-        <!-- Disable captcha for simplicity -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="email" name="email" placeholder="Your Email" required>
-        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-    </form>
-</div>
+
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on my latest projects!</p>
+                    <form class="newsletter-form" action="https://formsubmit.co/rahatullah.dev@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Rahat Ullah | Web Developer | All rights reserved.</p>
             </div>
         </div>
     </footer>
-      <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923329609949" target="_blank" rel="noopener noreferrer" class="whatsapp-btn"
+        aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"
+        aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <!-- Professional Custom Cursor Elements -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Main JavaScript -->
     <script src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
